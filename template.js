@@ -17,8 +17,7 @@ exports.template = function(grunt, init, done) {
     //add environment variables, dynamic properties
 
     var root = init.filesToCopy(props);
-    init.copyAndProcess(root, props, { noProcess: "src/assets/**" });
-    grunt.file.mkdir("data");
+    init.copyAndProcess(root, props, { noProcess: "static/**" });
 
     //install node modules
     console.log("Installing Node modules...");
