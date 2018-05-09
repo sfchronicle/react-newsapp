@@ -1,0 +1,8 @@
+{
+	"_comment": "Configure where `npm run fetch` will pull data from, can take up to 5 objects - visit https://airtable.com/api to get the ID",
+  "DATA": [{
+    "NAME": "example_data",
+    "AIRTABLE_ID": "",
+    "API_KEY": ""
+  }]
+}

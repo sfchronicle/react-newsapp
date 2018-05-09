@@ -1,3 +1,4 @@
 {
-  "_gitignore": ".gitignore"
+  "_gitignore": ".gitignore",
+  "_private-config.json": "private-config.json"
 }
