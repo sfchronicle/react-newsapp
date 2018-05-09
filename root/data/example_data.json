@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "id": "recpnZfhZmN94I1nG",
+      "fields": {
+        "Name": "Item 1",
+        "Notes": "This is a longer description"
+      },
+      "createdTime": "2018-05-04T18:59:52.000Z"
+    },
+    {
+      "id": "recqUrI08g76VRfGc",
+      "fields": {
+        "Name": "Item 2",
+        "Notes": "This is a thing, ABC"
+      },
+      "createdTime": "2018-05-04T18:59:52.000Z"
+    },
+    {
+      "id": "recjPUFVtX2MnemcG",
+      "fields": {
+        "Name": "Item 3",
+        "Notes": "More text description"
+      },
+      "createdTime": "2018-05-04T18:59:52.000Z"
+    }
+  ]
+}

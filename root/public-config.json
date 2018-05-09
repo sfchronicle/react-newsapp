@@ -1,0 +1,19 @@
+{
+  "_comment": "IMPORTANT: YEAR and SLUG for used for file pathing and the deploy script! Take care with your edits to them! NOTE: Stage deploys will automatically go to 'test-proj'",
+  "PAYWALL": "meterA",
+  "EMBEDDED": {%= embed %}, 
+  "PROJECT": {
+    "SUBFOLDER": "2018",
+    "SLUG": "test-slug",
+
+    "TITLE": "React Project",
+    "URL": "https://projects.sfchronicle.com/",
+    "IMAGE": "",
+    "DESCRIPTION": "Some text describing this project",
+    "TWITTER_TEXT": "Some social text",
+    "TWITTER_HASHTAGS": "yourhashtaghere",
+    "HEARST_CATEGORY": "news", 
+    "DATE": "", 
+    "AUTHOR": "Interactives Team"
+  }
+}

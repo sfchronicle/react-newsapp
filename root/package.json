@@ -1,0 +1,32 @@
+{
+  "name": "future-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node .",
+    "deploy:stage": "NODE_ENV=testing && next build && next export && ./deploy.sh stage",
+    "deploy:prod": "NODE_ENV=production && next build && next export && ./deploy.sh prod",
+    "fetch": "./airtable-fetcher.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
+    "@fortawesome/fontawesome": "^1.1.7",
+    "@fortawesome/fontawesome-free-brands": "^5.0.12",
+    "@fortawesome/fontawesome-free-solid": "^5.0.12",
+    "@fortawesome/react-fontawesome": "0.0.19",
+    "@zeit/next-less": "^0.2.0",
+    "express": "^4.16.3",
+    "file-exists": "^5.0.1",
+    "less": "^2.7.3",
+    "next": "^6.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-waypoint": "^8.0.1",
+    "serve": "^6.5.6",
+    "write": "^1.0.3"
+  }
+}
