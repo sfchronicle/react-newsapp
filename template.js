@@ -20,6 +20,9 @@ exports.template = function(grunt, init, done) {
     var root = init.filesToCopy(props);
     init.copyAndProcess(root, props, { noProcess: "static/**" });
 
+    //returning file permission to file
+    exec("chmod 744 deploy.sh");
+    
     //install node modules
     console.log("\x1b[33m%s\x1b[0m","\nInstalling Node modules...");
     exec("npm install --cache-min 999999");
