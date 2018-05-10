@@ -11,7 +11,7 @@ The newsapp template rebuilt using React
 - Should we want to turn any project into a full-fledged iOS or Android app, [React Native](https://facebook.github.io/react-native/) makes that possible
 - Next JS's declarative page structure means dropping hello.js into the `pages` folder creates the /hello/ path
 - Next JS supports dynamic page creation from a local or remote data source
-- Dynamic files in development, static files when built
+- Dynamic files in development (simpler for our developers), static files when built (faster for our readers)
 - One-line deploys to stage and production
 
 
