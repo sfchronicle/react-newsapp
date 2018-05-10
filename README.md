@@ -16,7 +16,7 @@ The newsapp template rebuilt using React
 
 
 ## Requirements
-- Node.js (via [Homebrew](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) or [nodejs.org](https://nodejs.org/en)) LTS version recommended (8.11.1) -- older versions may cause failure during new project init.
+- Node.js (via [Homebrew](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) or [nodejs.org](https://nodejs.org/en)) LTS version recommended (8.11.1) -- older versions may cause failure during new project init
 - npm 6.0.0 
 - Grunt project scaffolding (`npm i grunt-init -g`)
 
@@ -47,7 +47,9 @@ Run `npm run dev` and navigate to `localhost:3000` in your browser.
 
 ## Modifying the settings
 
-You can change the template dummy data to real project data by modifying the values found in `public-config.json` and `private-config.json`. These values will propagate throughout the app.
+You can change the template dummy data to real project data by modifying the values found in `public-config.json` and `private-config.json`. These values will propagate throughout the app. 
+
+You may also store arbitrary data in `public-config.json` as long as the required original keys remain in place.
 
 
 ## Pulling in data
