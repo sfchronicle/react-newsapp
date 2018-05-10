@@ -1,6 +1,20 @@
 # newsapp-react
 The newsapp template rebuilt using React
 
+
+## What's cool about this template
+
+- Next JS's \<Link\> components preserve common components and resources so internal links load up very quickly
+- React's Component-based approach encourages reuse of common UI elements to build pages more efficiently
+- Manipulating React's [Virtual DOM](http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/) is faster than traditional methods and results in a smoother experience for the reader
+- React makes it easy to register a service worker and turn our projects into [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/)
+- Should we want to turn any project into a full-fledged iOS or Android app, [React Native](https://facebook.github.io/react-native/) makes that possible
+- Next JS's declarative page structure means dropping hello.js into the `pages` folder creates the /hello/ path
+- Next JS supports dynamic page creation from a local or remote data source
+- Dynamic files in development, static files when built
+- One-line deploys to stage and production
+
+
 ## Requirements
 - Node.js (via [Homebrew](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) or [nodejs.org](https://nodejs.org/en))
 - npm 6.0.0
@@ -16,26 +30,38 @@ This will clone the repo into a folder called "react" so that we can run `grunt-
 
 If it works, you should be able to `ls ~/.grunt-init/react` and get back a list of files. That's it! Now let's start a sample project to see how it all works.
 
+
 ## Creating a new project
 Make a new folder for your project, open a shell there and type:
 ```
 grunt-init react
 ```
-The scaffolding wizard will ask you to fill in some information, such as your name, the name of the project, a description... Once that's done, it'll set up some folders and source files for you, and install the NPM modules needed for this project. 
+The scaffolding wizard will ask you to fill in some information, such as your name, the name of the project, a description. You can press 'Enter' to accept the defaults. The MULTI_PAGE option will configure settings to allow you to generate pages dynamically from data -- decline this option unless that's a requirement for your project. You can always update the public-config.json if your needs for this functionality change.
+
+Once that's done, it'll set up some folders and source files for you, and install the NPM modules needed for this project. 
+
 
 ## Run project
 Run `npm run dev` and navigate to `localhost:3000` in your browser.
 
+
 ## Modifying the settings
 
-You can change the template dummy data to real project data by modifying the values found in the `next.config.js` in the `publicRuntimeConfig` object. These values will propagate throughout the app.
+You can change the template dummy data to real project data by modifying the values found in `public-config.json` and `private-config.json`. These values will propagate throughout the app.
+
 
 ## Pulling in data
 
-This template is pre-configured to ingest data from Airtable. By modifying the values found in the `next.config.js` in the `serverRuntimeConfig` object, you can target the desired Airtable and pull in data as a JSON file with a custom name. You may copy the example object up to 5 times in the array to pull in 5 sheets at once (any more than 5 and Airtable will start rate limiting). 
+This template is pre-configured to ingest data from Airtable. By modifying the values found in `private-config.json`, you can target the desired Airtable and pull in data as a JSON file with a custom name. You may copy the example object up to 5 times in the array to pull in 5 sheets at once (any more than 5 and Airtable will start rate limiting). 
 
 Once the data is saved in the config, pull the data with this custom command: `npm run fetch`. The JSON will appear in a folder called `data` in the root of the project.
 
+
 ## Deploying
 
-You can build a static project for deploy on the projects server by running this custom command: `npm run build`. This will compile an `out` folder in the root directory that can be dragged into test-proj to demo internally or into an external folder to publish to the web. This section will be updated shortly with an enhanced deploy process.
+It's very important to first configure `public-config.json` with the right `subfolder` and `slug` values -- these will be used by the deploy script when the static files are sent to the server. These variables also determine the destination for relative links and static assets.
+
+One-liner to deploy code to our `test-proj` folder for internal testing: `npm run build:stage`.
+
+One-liner to deploy code to our your chosen subfolder for live publishing: `npm run build:prod`.
+
