@@ -146,7 +146,7 @@ export default class extends Component {
 						</div>
 
 						{/* Example of a Next js direct link */}
-						<Link prefetch href={`${publicRuntimeConfig.ASSET_PATH}/about`}>
+						<Link href={`${publicRuntimeConfig.ASSET_PATH}/about`}>
 							<a>About this project</a>
 						</Link>
 

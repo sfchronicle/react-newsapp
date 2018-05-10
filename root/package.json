@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "NODE_ENV=undefined && node .",
-    "deploy:stage": "NODE_ENV=testing && next build && next export && ./deploy.sh stage",
-    "deploy:prod": "NODE_ENV=production && next build && next export && ./deploy.sh prod",
+    "dev": "export NODE_ENV=undefined && node .",
+    "deploy:stage": "export NODE_ENV=testing && next build && next export && ./deploy.sh stage",
+    "deploy:prod": "export NODE_ENV=production && next build && next export && ./deploy.sh prod",
     "fetch": "./airtable-fetcher.js"
   },
   "author": "",

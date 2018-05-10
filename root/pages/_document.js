@@ -32,20 +32,19 @@ export default class MyDocument extends Document {
             <Fragment>
               <script type="text/javascript" src="https://treg.hearstnp.com/treg.js"></script>
               <script dangerouslySetInnerHTML={{ __html: `
-                (function(e) {
-                  var t = '//nexus.ensighten.com/hearst/news/Bootstrap.js';
-                  if (e.cookie.indexOf("nsghtn") > -1) {
-                    if(e.cookie.indexOf("nsghtn=test-dev") > -1) {
-                    console.log("Ensighten :: Test-Dev"); t = "//nexus-test.ensighten.com/hearst/news-dev/Bootstrap.js";
-                    } else if(e.cookie.indexOf("nsghtn=test") > -1) {
-                    console.log("Ensighten :: Test"); t = "//nexus-test.ensighten.com/hearst/news/Bootstrap.js";
-                    } else if(e.cookie.indexOf("nsghtn=dev") > -1) {
-                    console.log("Ensighten :: Dev"); t = "//nexus.ensighten.com/hearst/news-dev/Bootstrap.js";
-                    }
+                $script = document.createElement("script");
+                var t = '//nexus.ensighten.com/hearst/news/Bootstrap.js';
+                if (document.cookie.indexOf("nsghtn") > -1) {
+                  if(document.cookie.indexOf("nsghtn=test-dev") > -1) {
+                  console.log("Ensighten :: Test-Dev"); t = "//nexus-test.ensighten.com/hearst/news-dev/Bootstrap.js";
+                  } else if(document.cookie.indexOf("nsghtn=test") > -1) {
+                  console.log("Ensighten :: Test"); t = "//nexus-test.ensighten.com/hearst/news/Bootstrap.js";
+                  } else if(document.cookie.indexOf("nsghtn=dev") > -1) {
+                  console.log("Ensighten :: Dev"); t = "//nexus.ensighten.com/hearst/news-dev/Bootstrap.js";
                   }
-                  console.log(e.cookie.indexOf("nsghtn=dev"));
-                  e.write("<scr"+"ipt src='"+e.location.protocol+t+"'></scr"+"ipt>");
-                })(document);
+                }
+                $script.src = t;
+                document.getElementsByTagName("HEAD")[0].appendChild($script);
              `}} />
             </Fragment>
           )}

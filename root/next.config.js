@@ -94,7 +94,7 @@ if (currentEnv == "production"){
 }
 
 // Flag as we're compiling
-console.log("Compiling for", currentEnv);
+console.log("ENV SET: Compiling for", currentEnv);
 
 // Add it to public settings so we can apply it wherever we need it
 publicSettings.ASSET_PATH = assetPath;
