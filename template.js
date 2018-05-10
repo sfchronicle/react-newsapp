@@ -11,6 +11,7 @@ exports.template = function(grunt, init, done) {
     init.prompt("author_name"),
     init.prompt("app_name", here),
     init.prompt("app_description"),
+    init.prompt("multi_page", "false"),
     init.prompt("embed",'false'),
     init.prompt("github_repo", "sfchronicle/" + here)
   ], function(err, props) {

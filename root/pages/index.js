@@ -60,9 +60,17 @@ export default class extends Component {
   static async getInitialProps () {
     // Fetch list of posts to create links to pages 
     var posts = [];
-    // You can safely erase the 2 lines below if not linking to dynamic pages
-  	posts = require('../data/example_data.json');
-		posts = posts.records;
+
+    if (publicRuntimeConfig.MULTI_PAGE){
+    	// You can safely erase this conditional if there are no dynamic pages in this project
+    	// (Or if the dynamic pages are not required on the index page)
+    	try {
+				posts = require('../data/example_data.json');
+				posts = posts.records;
+			} catch (err) {
+				// Silently fail if there's no data to load
+			}
+    }
 
 		return { posts };
   }

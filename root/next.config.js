@@ -99,24 +99,18 @@ console.log("Compiling for", currentEnv);
 // Add it to public settings so we can apply it wherever we need it
 publicSettings.ASSET_PATH = assetPath;
 
-// Import example data 
-var json = [];
-try {
-  json = require('./data/example_data');
-  json = json.records;
-} catch (err) {
-  // Fail silently if there's no data
-}
-
 module.exports = {
   serverRuntimeConfig: privateSettings, // Will only be available on the server side
   publicRuntimeConfig: publicSettings, // Will be available on both server and client
   async exportPathMap () {
 
     // Only run dynamic page creation if there's json data 
-    if (json.length > 0){
+    let pages;
+    if (publicSettings.MULTI_PAGE){
+      let json = require('./data/example_data');
+      json = json.records;
       // Tranform the list of posts into a map of pages with the pathname `/post/:id`
-      const pages = json.reduce(
+      pages = json.reduce(
         (pages, post) =>
           Object.assign({}, pages, {
             [`/post/${post.id}`]: {
@@ -126,13 +120,13 @@ module.exports = {
           }),
         {}
       )
-
-      // Combine the map of post pages with the home
-      return Object.assign({}, pages, {
-        '/': { page: '/' },
-        '/about': { page: '/about' }
-      })
     }
+
+    // Combine the map of dynamic pages with the home and other static pages
+    return Object.assign({}, pages, {
+      '/': { page: '/' },
+      '/about': { page: '/about' }
+    })
 
   },
   assetPrefix: assetPath
