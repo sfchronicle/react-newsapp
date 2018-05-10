@@ -16,8 +16,8 @@ The newsapp template rebuilt using React
 
 
 ## Requirements
-- Node.js (via [Homebrew](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) or [nodejs.org](https://nodejs.org/en))
-- npm 6.0.0
+- Node.js (via [Homebrew](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) or [nodejs.org](https://nodejs.org/en)) LTS version recommended (8.11.1) -- older versions may cause failure during new project init.
+- npm 6.0.0 
 - Grunt project scaffolding (`npm i grunt-init -g`)
 
 
