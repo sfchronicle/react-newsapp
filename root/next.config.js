@@ -2,6 +2,8 @@
 const withLess = require('@zeit/next-less');
 const _ = require('lodash');
 
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
 // Modify these JSON files directly to update the project
 const privateConfig = require("./private-config");
 const publicConfig = require("./public-config");
@@ -94,12 +96,13 @@ if (currentEnv == "production"){
 }
 
 // Flag as we're compiling
-console.log("ENV SET: Compiling for", currentEnv);
+console.log("Compiling for", currentEnv);
 
 // Add it to public settings so we can apply it wherever we need it
 publicSettings.ASSET_PATH = assetPath;
 
-module.exports = {
+
+module.exports = withLess({
   serverRuntimeConfig: privateSettings, // Will only be available on the server side
   publicRuntimeConfig: publicSettings, // Will be available on both server and client
   async exportPathMap () {
@@ -122,14 +125,30 @@ module.exports = {
       )
     }
 
-    // Combine the map of dynamic pages with the home and other static pages
+    // Combine the map of post pages with the home
     return Object.assign({}, pages, {
       '/': { page: '/' },
       '/about': { page: '/about' }
     })
 
   },
-  assetPrefix: assetPath
-}
+  assetPrefix: assetPath,
+  webpack: (config) => {
+    config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        minify: true,
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
+        ]
+      })
+    )
 
-_.merge(module.exports, withLess());
+    return config
+  }
+});
+

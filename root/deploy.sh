@@ -34,11 +34,13 @@ spinner(){
 # param 1 is the directory, param 2 is the old extension, param 3 (if true) converts html to php
 updateFile(){
 	echo "Running file updates..."
-  perl -pi -e $replaceJS $1/*.$2
+	# JS doesn't really need cache busting anymore -- leave as comment just in case
+  # perl -pi -e $replaceJS $1/*.$2
   perl -pi -e $replaceCSS $1/*.$2
-  perl -pi -e $queryJS $1/*.$2
+  # perl -pi -e $queryJS $1/*.$2
   perl -pi -e $queryCSS $1/*.$2
   if [ "$3" == "true" ]; then
+  	# NOTE: This appears to update all HTML in the directory, not just current folder -- modify if that's an issue
   	find . -name "*.html" -exec bash -c 'mv "$1" "${1%.html}".php' - '{}' \;
   fi
 }
@@ -108,8 +110,11 @@ if [ -d "/Volumes/SFGextras/Projects/" ]; then
 		echo ""  # For spacing
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 		  echo "User confirmed deployment. Starting..."
+		  # Move service worker into folder to be served
+		  cp .next/service-worker.js out
+
+		  # Format strings for file manipulation
 		  random=`date +%s`
-		  # JS doesn't really need cache busting anymore but continue just in case
 		  replaceJS="s/\.js\?.*?(?=(\"|\'))/\.js/g"
 		  replaceCSS="s/\.css\?.*?(?=(\"|\'))/\.css/g"
 		  queryJS="s/\.js/\.js?$random/g"

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 // Components
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import Credits from "../components/Credits";
 import CreditLine from "../components/CreditLine";
 import NavTop from "../components/NavTop";
@@ -56,7 +56,7 @@ this.handleClick = (e) => {
 /* END EVENTS */
 
 // Export the Main HTML
-export default class extends Component {
+export default class extends PureComponent {
   static async getInitialProps () {
     // Fetch list of posts to create links to pages 
     var posts = [];
@@ -73,6 +73,19 @@ export default class extends Component {
     }
 
 		return { posts };
+  }
+
+  componentDidMount () {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register(`${publicRuntimeConfig.ASSET_PATH}/service-worker.js`)
+        .then(registration => {
+          console.log('service worker registration successful')
+        })
+        .catch(err => {
+          console.warn('service worker registration failed', err.message)
+        })
+    }
   }
 
   render () {

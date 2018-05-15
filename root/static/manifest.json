@@ -1,0 +1,20 @@
+{
+  "name": "San Francisco Chronicle",
+  "short_name": "SF Chronicle",
+  "icons": [
+    {
+      "src": "http://projects.sfchronicle.com/shared/template_icons/sfletter_black_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "http://projects.sfchronicle.com/shared/template_icons/sfletter_black_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#eeeeee",
+  "background_color": "#eeeeee"
+}
