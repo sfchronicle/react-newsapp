@@ -12,6 +12,7 @@ The newsapp template rebuilt using React
 - Next JS's declarative page structure means dropping hello.js into the `pages` folder creates the /hello/ path
 - Next JS supports dynamic page creation from a local or remote data source
 - Dynamic files in development (simpler for our developers), static files when built (faster for our readers)
+- Utilizes a Progressive Web App enhancements like service workers (speeds up loading) and manifest data (icons and theme colors)
 - One-line deploys to stage and production
 
 
