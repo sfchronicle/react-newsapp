@@ -110,8 +110,9 @@ if [ -d "/Volumes/SFGextras/Projects/" ]; then
 		echo ""  # For spacing
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 		  echo "User confirmed deployment. Starting..."
-		  # Move service worker into folder to be served
+		  # Move helper files into folder to be served
 		  cp .next/service-worker.js out
+		  cp manifest.json out
 
 		  # Format strings for file manipulation
 		  random=`date +%s`
