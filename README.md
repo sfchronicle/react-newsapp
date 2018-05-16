@@ -31,6 +31,10 @@ This will clone the repo into a folder called "react" so that we can run `grunt-
 
 If it works, you should be able to `ls ~/.grunt-init/react` and get back a list of files. That's it! Now let's start a sample project to see how it all works.
 
+Quick command to update to the latest template:
+
+`rm -rf ~/.grunt-init/react && git clone git@github.com:sfchronicle/react-newsapp.git ~/.grunt-init/react`
+
 
 ## Creating a new project
 Make a new folder for your project, open a shell there and type:
