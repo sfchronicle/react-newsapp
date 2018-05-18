@@ -23,12 +23,12 @@ exports.template = function(grunt, init, done) {
     //returning file permission to file
     exec("chmod 744 deploy.sh");
     
-    //install node modules
-    console.log("\x1b[33m%s\x1b[0m","\nInstalling Node modules...");
-    exec("npm install --cache-min 999999");
-
     //initiliazing git
     console.log("\x1b[33m%s\x1b[0m", "\nInitialized git\n");
-    exec("git init", done);
+    exec("git init");
+    
+    //install node modules
+    console.log("\x1b[33m%s\x1b[0m","\nInstalling Node modules...");
+    exec("npm install --cache-min 999999", done);
   });
 };
