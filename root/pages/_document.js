@@ -6,8 +6,11 @@
 import React, { Fragment } from "react";
 import Document, { Head, Main, NextScript } from 'next/document';
 
-// Import styles -- this file imports everything
-import "../styles/seed.less";
+// Import any styles needed in document
+import "../styles/sfchronicle.less";
+import "../styles/footer.less";
+import "../styles/interactives.less";
+import "../styles/project.less";
 
 // Components
 import Footer from "../components/Footer";
