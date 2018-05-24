@@ -76,7 +76,8 @@ export default class extends PureComponent {
   }
 
   componentDidMount () {
-    if ('serviceWorker' in navigator) {
+  	// Don't register service worker on local dev
+    if (process.env.NODE_ENV != 'development' && 'serviceWorker' in navigator) {
       navigator.serviceWorker
         .register(`${publicRuntimeConfig.ASSET_PATH}/service-worker.js`)
         .then(registration => {
@@ -85,6 +86,13 @@ export default class extends PureComponent {
         .catch(err => {
           console.warn('service worker registration failed', err.message)
         })
+    } else {
+    	// Uninstall any rogue workers
+    	navigator.serviceWorker.getRegistrations().then(function(registrations) {
+			 	for(let registration of registrations) {
+			  	registration.unregister()
+				} 
+			});
     }
   }
 
@@ -92,6 +100,8 @@ export default class extends PureComponent {
   	return (
   		<main>
         <Head>
+        	{/* Title needs to go here (inside a Head tag) on each navigable page */}
+        	<title>{ publicRuntimeConfig.PROJECT.TITLE }</title>
           <SocialTop />
           <script dangerouslySetInnerHTML={{ __html: `
           	var HDN=${publicRuntimeConfig.ANALYTICS};

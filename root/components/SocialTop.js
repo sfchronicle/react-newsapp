@@ -18,7 +18,6 @@ class SocialTop extends Component {
   render() {
     return (
       <Fragment>
-      	<title>{ this.props.title }</title>
       	<meta name="description" content={ this.props.description } />
       	<meta name="__sync_contentCategory" content={ this.props.paywall } />
         <link rel="shortcut icon" href="https://www.sfchronicle.com/favicon.ico" type="image/x-icon" />
@@ -42,7 +41,6 @@ class SocialTop extends Component {
 }  
 // These are the defaults from next.config.js unless they are overidden using props
 SocialTop.defaultProps = {
-  title: publicRuntimeConfig.PROJECT.TITLE,
   description: publicRuntimeConfig.PROJECT.DESCRIPTION,
   paywall: publicRuntimeConfig.PAYWALL,
   image: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SLUG }${ publicRuntimeConfig.PROJECT.IMAGE }`,
