@@ -129,7 +129,7 @@ export default class extends PureComponent {
 							<h1>A brave new template</h1>
 							<p>Words can be like X-rays if you use them properly &mdash; they'll go through anything.</p>
 							<p className="byline">By <a href="https://www.sfchronicle.com/2018/in-depth-projects/" target="_blank">the Interactive Team</a></p>
-							<time className="dateline" datetime="1970-01-30T13:00:00-07:00"  itemprop="dateModified">January 30, 1970 1:00 PM</time>
+							<time className="dateline" dateTime="1970-01-30T13:00:00-07:00" itemProp="dateModified">January 30, 1970 1:00 PM</time>
 						</div>
 					</div>
 
