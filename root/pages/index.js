@@ -38,6 +38,9 @@ const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
  * and any image srcs with ${publicRuntimeConfig.ASSET_PATH}${env.STATIC_URL} --
  * otherwise they will break when deployed to stage/prod */
 
+// Bring in moment to handle dates
+var moment = require('moment');
+
 // Import example data 
 var json;
 try {
@@ -73,6 +76,11 @@ export default class extends PureComponent {
     }
 
 		return { posts };
+  }
+
+  componentWillMount () {
+    // Convert date to readable time
+    this.dateString = moment(publicRuntimeConfig.PROJECT.DATE, "YYYY-MM-DDTHH:mm:ssZ").format("MMMM D, YYYY h:mm a");
   }
 
   componentDidMount () {
@@ -129,7 +137,7 @@ export default class extends PureComponent {
 							<h1>A brave new template</h1>
 							<p>Words can be like X-rays if you use them properly &mdash; they'll go through anything.</p>
 							<p className="byline">By <a href="https://www.sfchronicle.com/2018/in-depth-projects/" target="_blank">the Interactive Team</a></p>
-							<time className="dateline" dateTime="1970-01-30T13:00:00-07:00" itemProp="dateModified">January 30, 1970 1:00 p.m.</time>
+							<time className="dateline" dateTime={ publicRuntimeConfig.PROJECT.DATE } itemProp="dateModified">{this.dateString}</time>
 						</div>
 					</div>
 
