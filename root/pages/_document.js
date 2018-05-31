@@ -65,7 +65,9 @@ export default class MyDocument extends Document {
         
         <body is={isResponsiveBody}>
           <Main />
-          <Footer />
+          { publicRuntimeConfig.EMBEDDED &&
+            <Footer />
+          }
           <NextScript />
           {/* End-of-doc scripts can be added here if needed (and don't have a React module) */}
         </body>
