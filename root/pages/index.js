@@ -80,7 +80,7 @@ export default class extends PureComponent {
 
   componentWillMount () {
     // Convert date to readable time
-    this.dateString = moment(publicRuntimeConfig.PROJECT.DATE, "YYYY-MM-DDTHH:mm:ssZ").format("MMMM D, YYYY h:mm a");
+    this.computerDate = moment(publicRuntimeConfig.PROJECT.DATE, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ");
   }
 
   componentDidMount () {
@@ -141,7 +141,7 @@ export default class extends PureComponent {
 							<h1>A brave new template</h1>
 							<p>Words can be like X-rays if you use them properly &mdash; they'll go through anything.</p>
 							<p className="byline">By <a href="https://www.sfchronicle.com/2018/in-depth-projects/" target="_blank">the Interactive Team</a></p>
-							<time className="dateline" dateTime={ publicRuntimeConfig.PROJECT.DATE } itemProp="dateModified">{this.dateString}</time>
+							<time className="dateline" dateTime={ this.computerDate } itemProp="dateModified">{ publicRuntimeConfig.PROJECT.DATE }</time>
 						</div>
 					</div>
 
