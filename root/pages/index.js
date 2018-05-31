@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 // Components
-import { PureComponent } from 'react'
+import { PureComponent, Fragment } from 'react'
 import Credits from "../components/Credits";
 import CreditLine from "../components/CreditLine";
 import NavTop from "../components/NavTop";
@@ -110,16 +110,20 @@ export default class extends PureComponent {
         <Head>
         	{/* Title needs to go here (inside a Head tag) on each navigable page */}
         	<title>{ publicRuntimeConfig.PROJECT.TITLE }</title>
-          <SocialTop />
-          <script dangerouslySetInnerHTML={{ __html: `
-          	var HDN=${publicRuntimeConfig.ANALYTICS};
-            HDN.dataLayer.href.pageUrlPath = window.location.pathname;
-            HDN.dataLayer.href.pageUrlPathFolders = window.location.pathname.replace(/[A-Za-z0-9-_.]+$/, '');
-            HDN.dataLayer.href.pageUrlHash = window.location.hash;
-            if (window.location.search){
-              HDN.dataLayer.href.pageUrlQueryParams = window.location.search.replace(/^\?/, '');
-            }
-          `}} />
+        	{ publicRuntimeConfig.EMBEDDED == false &&
+        		<Fragment>
+	          	<SocialTop />
+		          <script dangerouslySetInnerHTML={{ __html: `
+		          	var HDN=${publicRuntimeConfig.ANALYTICS};
+		            HDN.dataLayer.href.pageUrlPath = window.location.pathname;
+		            HDN.dataLayer.href.pageUrlPathFolders = window.location.pathname.replace(/[A-Za-z0-9-_.]+$/, '');
+		            HDN.dataLayer.href.pageUrlHash = window.location.hash;
+		            if (window.location.search){
+		              HDN.dataLayer.href.pageUrlQueryParams = window.location.search.replace(/^\?/, '');
+		            }
+		          `}} />
+		        </Fragment>
+	        }
         </Head>
 				<div id="project-wrapper">
 
