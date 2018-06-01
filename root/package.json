@@ -1,5 +1,5 @@
 {
-  "name": "react-newsapp",
+  "name": "{%= app_slug %}",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

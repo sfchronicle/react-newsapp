@@ -9,7 +9,8 @@ exports.template = function(grunt, init, done) {
   //process
   init.process(init.defaults, [
     init.prompt("author_name"),
-    init.prompt("app_name", here),
+    init.prompt("app_slug", here),
+    init.prompt("app_title"),
     init.prompt("app_description"),
     init.prompt("multi_page", "false"),
     init.prompt("embed",'false'),

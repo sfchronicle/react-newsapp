@@ -5,12 +5,12 @@
   "MULTI_PAGE": {%= multi_page %},
   "PROJECT": {
     "SUBFOLDER": "2018",
-    "SLUG": "test-slug",
+    "SLUG": "{%= app_slug %}",
 
-    "TITLE": "React Project",
+    "TITLE": "{%= app_title %}",
     "URL": "https://projects.sfchronicle.com/",
     "IMAGE": "",
-    "DESCRIPTION": "Some text describing this project",
+    "DESCRIPTION": "{%= app_description %}",
     "TWITTER_TEXT": "Some social text",
     "TWITTER_HASHTAGS": "yourhashtaghere",
     "HEARST_CATEGORY": "news", 
