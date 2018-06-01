@@ -10,7 +10,7 @@ class RelatedRow extends Component {
     return (
       <div className="related-links">
         { links.map((link) => {
-          return <RelatedLink url={link.url} image={link.image} title={link.title} width={linkWidth} />
+          return <RelatedLink key={link.title} url={link.url} image={link.image} title={link.title} width={linkWidth} />
         })}
       </div>
     );

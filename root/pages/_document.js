@@ -59,6 +59,7 @@ export default class MyDocument extends Document {
                 $script.src = t;
                 document.getElementsByTagName("HEAD")[0].appendChild($script);
              `}} />
+             <script async src="https://cdn.blueconic.net/hearst.js"></script>
             </Fragment>
           )}
         </Head>
