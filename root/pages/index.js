@@ -201,7 +201,9 @@ export default class extends PureComponent {
 
 					</div>
 
-					<RelatedRow links={ linkArray } />
+					<div className="related-link-wrapper">
+						<RelatedRow links={ linkArray } />
+					</div>
 
 					<div id="credits">
 						<h2>Credits</h2>
