@@ -88,7 +88,7 @@ class NavTop extends Component {
 					  </div>
 
 					  <div className="link social twitter">
-					    <a id="twitter-icon" title="Share on Twitter" href={`https://twitter.com/intent/tweet?url=${ project.URL }${ project.SUBFOLDER }%2F${ project.SLUG }&text=${ project.TWITTER_TEXT }&hashtags=${ project.TWITTER_HASHTAGS }`}>
+					    <a target="_blank" rel="noopener" id="twitter-icon" title="Share on Twitter" href={`https://twitter.com/intent/tweet?url=${ project.URL }${ project.SUBFOLDER }%2F${ project.SLUG }&text=${ project.TWITTER_TEXT }&hashtags=${ project.TWITTER_HASHTAGS }`}>
 					      <FontAwesomeIcon icon={["fab", "twitter"]}/>
 					    </a>
 					  </div>
