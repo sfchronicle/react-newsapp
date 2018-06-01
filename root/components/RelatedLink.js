@@ -11,7 +11,7 @@ class RelatedLink extends Component {
 				</a>
 				<style jsx>{`
 	      .link-block {
-	        flex: 0 0 ${this.props.width}% !important
+	        flex: 0 0 ${this.props.width}%;
 	      }
 	    	`}</style>
 			</div>
