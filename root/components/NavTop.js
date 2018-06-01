@@ -76,7 +76,7 @@ class NavTop extends Component {
 					  </div>
 
 					  <div className="link social email">
-					    <a id="mail-icon" title="Share via email" href={`mailto:?subject=${ project.TITLE }&body=${ project.DESCRIPTION }%0A%0A${ project.URL }%2F${ project.YEAR }%2F${ project.SLUG }`}>
+					    <a id="mail-icon" title="Share via email" href={`mailto:?subject=${ project.TITLE }&body=${ project.DESCRIPTION }%0A%0A${ project.URL }%2F${ project.SUBFOLDER }%2F${ project.SLUG }`}>
 					      <FontAwesomeIcon icon="envelope"/>
 					    </a>
 					  </div>
@@ -88,7 +88,7 @@ class NavTop extends Component {
 					  </div>
 
 					  <div className="link social twitter">
-					    <a id="twitter-icon" title="Share on Twitter" href={`https://twitter.com/intent/tweet?url=${ project.URL }%2F${ project.YEAR }%2F${ project.SLUG }&text=${ project.TWITTER_TEXT }&hashtags=${ project.TWITTER_HASHTAGS }`}>
+					    <a id="twitter-icon" title="Share on Twitter" href={`https://twitter.com/intent/tweet?url=${ project.URL }%2F${ project.SUBFOLDER }%2F${ project.SLUG }&text=${ project.TWITTER_TEXT }&hashtags=${ project.TWITTER_HASHTAGS }`}>
 					      <FontAwesomeIcon icon={["fab", "twitter"]}/>
 					    </a>
 					  </div>
