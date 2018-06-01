@@ -5,6 +5,19 @@
   line-height: 0;
 }
 
+// Make all links red
+a, p a {
+  color: @redlink;
+
+  &:hover {
+    color: @redlinkhover;
+  }
+
+  :hover {
+    color: @redlinkhover;
+  }
+}
+
 #title {
   h1 {
     font-family: @title;
@@ -75,6 +88,10 @@ header {
   text-align: center;
   font-size: 15px;
   font-family: @med-graphics;
+
+  @media @mobile {
+    margin-top: 20px;
+  }
 
   p {
     margin-bottom: 0;
