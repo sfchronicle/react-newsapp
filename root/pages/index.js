@@ -13,6 +13,7 @@ import CreditLine from "../components/CreditLine";
 import NavTop from "../components/NavTop";
 import SocialTop from "../components/SocialTop";
 import Post from '../components/Post';
+import RelatedRow from '../components/RelatedRow';
 
 // Enable Font Awesome! 
 // The code below should enable use of anything from this list: https://fontawesome.com/icons?d=gallery&s=solid
@@ -105,6 +106,10 @@ export default class extends PureComponent {
   }
 
   render () {
+
+  	// Include related links for bottom
+  	const linkArray = require('../data/related_links.json');
+
   	return (
   		<main>
         <Head>
@@ -195,6 +200,8 @@ export default class extends PureComponent {
 				    </ul>
 
 					</div>
+
+					<RelatedRow links={ linkArray } />
 
 					<div id="credits">
 						<h2>Credits</h2>

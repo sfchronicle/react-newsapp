@@ -83,6 +83,38 @@ header {
   }
 }
 
+.related-link-wrapper {
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  max-width: 960px;
+  margin: 10px auto;
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+
+    .link-block {
+      flex: 0 0 33.3%;
+      padding: 0 5px;
+
+      @media @tablet {
+        flex: 0 0 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      h4 {
+        margin: 0 0 15px;
+        font-size: 16px;
+        font-weight: initial;
+      }
+    }
+  }
+}
+
 #credits {
   margin-top: 50px;
   text-align: center;
