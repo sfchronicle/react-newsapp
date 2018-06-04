@@ -43,7 +43,7 @@ class SocialTop extends Component {
 SocialTop.defaultProps = {
   description: publicRuntimeConfig.PROJECT.DESCRIPTION,
   paywall: publicRuntimeConfig.PAYWALL,
-  image: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SLUG }${ publicRuntimeConfig.PROJECT.IMAGE }`,
+  image: publicRuntimeConfig.PROJECT.IMAGE,
   url: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SLUG }`
 };
 export default SocialTop;
