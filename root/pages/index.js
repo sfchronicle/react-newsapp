@@ -95,7 +95,7 @@ export default class extends PureComponent {
         .catch(err => {
           console.warn('service worker registration failed', err.message)
         })
-    } else {
+    } else if ('serviceWorker' in navigator) {
     	// Uninstall any rogue workers
     	navigator.serviceWorker.getRegistrations().then(function(registrations) {
 			 	for(let registration of registrations) {
