@@ -49,7 +49,7 @@ class NavTop extends Component {
 		// Enable the social popup
 		this.handleFacebookClick = (e) => {
 			e.preventDefault();
-			window.open(`https://www.facebook.com/sharer/sharer.php?u=${ project.URL }%2F${ project.YEAR }%2F${ project.SLUG }`, 'facebook-share-dialog', 'width=626,height=436');
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${ project.URL }${ project.SUBFOLDER }%2F${ project.SLUG }`, 'facebook-share-dialog', 'width=626,height=436');
 			return false;
 		}
 
