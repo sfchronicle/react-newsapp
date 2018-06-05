@@ -44,6 +44,7 @@ SocialTop.defaultProps = {
   description: publicRuntimeConfig.PROJECT.DESCRIPTION,
   paywall: publicRuntimeConfig.PAYWALL,
   image: publicRuntimeConfig.PROJECT.IMAGE,
+  title: publicRuntimeConfig.PROJECT.TITLE,
   url: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SLUG }`
 };
 export default SocialTop;
