@@ -18,9 +18,6 @@ import Footer from "../components/Footer";
 // Holds serverRuntimeConfig and publicRuntimeConfig from next.config.js, nothing else
 import getConfig from 'next/config';
 const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
-
-// Pull in env vars
-import env from '../env-vars';
  
 export default class MyDocument extends Document {
 
@@ -38,7 +35,7 @@ export default class MyDocument extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <link rel="manifest" href={`${publicRuntimeConfig.ASSET_PATH}${env.STATIC_URL}manifest.json`} />
+          <link rel="manifest" href={`${publicRuntimeConfig.ASSET_PATH}/static/manifest.json`} />
           { publicRuntimeConfig.EMBEDDED ? (
             <script src="https://projects.sfchronicle.com/shared/js/responsive-child.js"></script>
           ) : (

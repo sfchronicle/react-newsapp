@@ -1,7 +1,4 @@
 
-// Pull in env vars
-import env from '../env-vars';
-
 // Allow Nextjs linking and dynamic pagination
 import Link from 'next/link';
 import Head from 'next/head';
@@ -36,7 +33,7 @@ const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
 
 /*** IMPORTANT! ***/
 /* Be sure to prefix any links with ${publicRuntimeConfig.ASSET_PATH}
- * and any image srcs with ${publicRuntimeConfig.ASSET_PATH}${env.STATIC_URL} --
+ * and any image srcs with ${publicRuntimeConfig.ASSET_PATH}/static/ --
  * otherwise they will break when deployed to stage/prod */
 
 // Bring in moment to handle dates
@@ -134,7 +131,7 @@ export default class extends PureComponent {
 
 					<div id="topper">
 						<div className="img-wrapper">
-							<img className="starter-img" src={`${publicRuntimeConfig.ASSET_PATH}${env.STATIC_URL}react.gif`} />
+							<img className="starter-img" src={`${publicRuntimeConfig.ASSET_PATH}/static/react.gif`} />
 						</div>
 					</div>
 

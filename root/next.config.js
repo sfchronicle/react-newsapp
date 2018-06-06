@@ -87,6 +87,12 @@ publicSettings.ANALYTICS = JSON.stringify(HDN);
 
 // Check for prod build for asset prefixing
 const currentEnv = process.env.NODE_ENV;
+
+/* Handle ENV VARS here by checking for currentEnv 
+ * And setting vars on publicSettings based on that data 
+ * This is necessary because process.env.NODE_ENV can't be trusted
+ * Outside of this file */
+
 // For dev, we want the path to be the root, so no path works great
 let assetPath = "";
 if (currentEnv == "production"){
@@ -98,7 +104,7 @@ if (currentEnv == "production"){
 // Flag as we're compiling
 console.log("Compiling for", currentEnv);
 
-// Add it to public settings so we can apply it wherever we need it
+// Set vars to public settings so we can apply them wherever we need
 publicSettings.ASSET_PATH = assetPath;
 
 
