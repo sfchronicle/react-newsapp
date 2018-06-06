@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href={`${publicRuntimeConfig.ASSET_PATH}/_next/static/style.css`} />
           <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <meta name="ispremium" content={isPremium}>
+          <meta name="ispremium" content={isPremium} />
           <meta name="theme-color" content="#eeeeee" />
           <link rel="apple-touch-icon" href="https://projects.sfchronicle.com/shared/logos/sfletter_c_black.png" />
           <meta name="apple-mobile-web-app-title" content="Hacker News" />
