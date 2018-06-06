@@ -1,9 +1,10 @@
 {
-  "_comment": "IMPORTANT: YEAR and SLUG for used for file pathing and the deploy script! Take care with your edits to them! NOTE: Stage deploys will automatically go to 'test-proj'",
-  "PAYWALL": "meterA",
+  "_comment": "The possible paywall values are 'meter' (wall after 5), 'paywall' (wall immediately), or 'free' (no wall)"
+  "PAYWALL_SETTING": "meter",
   "EMBEDDED": {%= embed %}, 
   "MULTI_PAGE": {%= multi_page %},
   "PROJECT": {
+    "_comment": "IMPORTANT: SUBFOLDER and SLUG for used for file pathing and the deploy script! Take care with your edits to them! NOTE: Stage deploys will automatically go to 'test-proj'",
     "SUBFOLDER": "2018",
     "SLUG": "{%= app_slug %}",
 

@@ -69,6 +69,7 @@ HDN.dataLayer.presentation.hasInteractive = "";
 HDN.dataLayer.paywall = HDN.dataLayer.paywall || {};
 HDN.dataLayer.paywall.premiumStatus = "isPremium";
 HDN.dataLayer.paywall.premiumEndDate = "";
+HDN.dataLayer.paywall.policy = publicSettings.PAYWALL_SETTING;
 
 // Special site var
 HDN.dataLayer.site = {
