@@ -39,6 +39,9 @@ const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
 // Bring in moment to handle dates
 var moment = require('moment');
 
+// To allow tweets to expand as popups
+require("../lib/social");
+
 // Import example data 
 var json;
 try {
