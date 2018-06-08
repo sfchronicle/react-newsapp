@@ -124,7 +124,7 @@ export default class extends PureComponent {
 		            HDN.dataLayer.href.pageUrlPathFolders = window.location.pathname.replace(/[A-Za-z0-9-_.]+$/, '');
 		            HDN.dataLayer.href.pageUrlHash = window.location.hash;
 		            if (window.location.search){
-		              HDN.dataLayer.href.pageUrlQueryParams = window.location.search.replace(/^\?/, '');
+		              HDN.dataLayer.href.pageUrlQueryParams = window.location.search.replace('?', '');
 		            }
 		          `}} />
 		        </Fragment>
