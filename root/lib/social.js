@@ -42,4 +42,3 @@
   }
   window.__twitterIntentHandler = true;
 }());
-console.log('hi social');
