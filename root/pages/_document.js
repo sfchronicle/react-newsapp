@@ -70,7 +70,7 @@ export default class MyDocument extends Document {
         
         <body is={isResponsiveBody}>
           <Main />
-          { publicRuntimeConfig.EMBEDDED &&
+          { !publicRuntimeConfig.EMBEDDED &&
             <Footer />
           }
           <NextScript />
