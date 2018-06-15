@@ -101,13 +101,36 @@ if (currentEnv == "production"){
 } else if (currentEnv == "testing"){
   assetPath = `/test-proj/${publicSettings.PROJECT.SLUG}`;
 }
-
-// Flag as we're compiling
-console.log("Compiling for", currentEnv);
-
 // Set vars to public settings so we can apply them wherever we need
 publicSettings.ASSET_PATH = assetPath;
 
+
+// Only include service worker code if we're compiling for deploy
+let serviceWorkerFunc = (config) => {
+  return config;
+};
+if (currentEnv != "development"){
+  serviceWorkerFunc = (config) => {
+    config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        minify: true,
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
+        ]
+      })
+    )
+
+    return config;
+  }
+}
+
+// Flag as we're compiling
+console.log("Compiling for", currentEnv);
 
 module.exports = withLess({
   serverRuntimeConfig: privateSettings, // Will only be available on the server side
@@ -140,22 +163,6 @@ module.exports = withLess({
 
   },
   assetPrefix: assetPath,
-  webpack: (config) => {
-    config.plugins.push(
-      new SWPrecacheWebpackPlugin({
-        verbose: true,
-        staticFileGlobsIgnorePatterns: [/\.next\//],
-        minify: true,
-        runtimeCaching: [
-          {
-            handler: 'networkFirst',
-            urlPattern: /^https?.*/
-          }
-        ]
-      })
-    )
-
-    return config
-  }
+  webpack: serviceWorkerFunc
 });
 
