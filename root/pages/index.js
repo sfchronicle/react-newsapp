@@ -47,17 +47,21 @@ try {
 	// Silently fail if there's no data to load
 }
 
-/* HANDLE EVENTS */
-
-// Example event
-this.handleClick = (e) => {
-	alert(`Logging a button press on ${e.currentTarget.id}!`);
-}
-
-/* END EVENTS */
-
 // Export the Main HTML
 export default class extends PureComponent {
+	constructor(props) {
+    super(props);
+
+    /* HANDLE EVENTS */
+
+		// Example event
+		this.handleClick = (e) => {
+			alert(`Logging a button press on ${e.currentTarget.id}!`);
+		}
+
+		/* END EVENTS */
+  }
+
   static async getInitialProps () {
     // Fetch list of posts to create links to pages 
     var posts = [];
