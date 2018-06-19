@@ -49,19 +49,6 @@ try {
 
 // Export the Main HTML
 export default class extends PureComponent {
-	constructor(props) {
-    super(props);
-
-    /* HANDLE EVENTS */
-
-		// Example event
-		this.handleClick = (e) => {
-			alert(`Logging a button press on ${e.currentTarget.id}!`);
-		}
-
-		/* END EVENTS */
-  }
-
   static async getInitialProps () {
     // Fetch list of posts to create links to pages 
     var posts = [];
@@ -79,6 +66,15 @@ export default class extends PureComponent {
 
 		return { posts };
   }
+
+  /* HANDLE EVENTS */
+
+	// Example event
+	handleClick (e){
+		alert(`Logging a button press on ${e.currentTarget.id}!`);
+	}
+
+	/* END EVENTS */
 
   componentWillMount () {
     // Convert date to readable time
