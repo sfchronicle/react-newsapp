@@ -68,9 +68,9 @@ Once the data is saved in the config, pull the data with this custom command: `n
 
 It's very important to first configure `public-config.json` with the right `subfolder` and `slug` values -- these will be used by the deploy script when the static files are sent to the server. These variables also determine the destination for relative links and static assets.
 
-One-liner to deploy code to our `test-proj` folder for internal testing: `npm run build:stage`
+One-liner to deploy code to our `test-proj` folder for internal testing: `npm run deploy:stage`
 
-One-liner to deploy code to our your chosen subfolder for live publishing: `npm run build:prod`
+One-liner to deploy code to our your chosen subfolder for live publishing: `npm run deploy:prod`
 
 ## Notes about developing on this template
 
