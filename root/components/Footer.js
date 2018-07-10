@@ -22,7 +22,7 @@ class Footer extends Component {
 		           <li><a href="//www.sfchronicle.com/hr/" target="_blank">Careers</a></li>
 		           <li><a href="//www.sfchronicle.com/terms_of_use/" target="_blank">Terms of Use</a></li>
 		           <li><a href="//marketing.sfgate.com" target="_blank">Advertising</a></li>
-		           <li><a href="//www.sfchronicle.com/privacy_policy" target="_blank">Privacy Policy</a></li>
+		           <li><a href="//www.sfchronicle.com/privacy_policy" target="_blank">Privacy Notice</a></li>
 		           <li><a href="//www.sfchronicle.com/privacy_policy#your_rights" target="_blank">Your Privacy Rights</a></li>
 		           <li><a href="//www.sfchronicle.com/privacy_policy/#caprivacyrights" target="_blank">Your California Privacy Rights</a></li>
 		          </ul>
