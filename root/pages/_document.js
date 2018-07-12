@@ -47,9 +47,10 @@ export default class MyDocument extends Document {
             <script src="https://projects.sfchronicle.com/shared/js/responsive-child.js"></script>
           ) : (
             <Fragment>
-              <script async type="text/javascript" src="https://treg.hearstnp.com/treg.js"></script>
-              <script async dangerouslySetInnerHTML={{ __html: `
-                $script = document.createElement("script");
+              <script src="https://projects.sfchronicle.com/shared/js/jquery.min.js"></script>
+              <script src="https://treg.hearstnp.com/treg.js"></script>
+              <script dangerouslySetInnerHTML={{ __html: `
+                $scriptEn = document.createElement("script");
                 var t = '//nexus.ensighten.com/hearst/news/Bootstrap.js';
                 if (document.cookie.indexOf("nsghtn") > -1) {
                   if(document.cookie.indexOf("nsghtn=test-dev") > -1) {
@@ -60,10 +61,14 @@ export default class MyDocument extends Document {
                   console.log("Ensighten :: Dev"); t = "//nexus.ensighten.com/hearst/news-dev/Bootstrap.js";
                   }
                 }
-                $script.src = t;
-                document.getElementsByTagName("HEAD")[0].appendChild($script);
+                $scriptEn.src = t;
+                $scriptEn.async = false;
+                document.getElementsByTagName("HEAD")[0].appendChild($scriptEn);
+                $scriptBlue = document.createElement("script");
+                $scriptBlue.src = 'https://cdn.blueconic.net/hearst.js';
+                $scriptBlue.async = false;
+                document.getElementsByTagName("HEAD")[0].appendChild($scriptBlue);
              `}} />
-             <script async src="https://cdn.blueconic.net/hearst.js"></script>
             </Fragment>
           )}
         </Head>
