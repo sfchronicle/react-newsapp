@@ -25,7 +25,7 @@ The newsapp template rebuilt using React
 ## Setup
 Clone this repo into it using the following command:
 ```
-git clone git@github.com:sfchronicle/newsapp-react react
+git clone git@github.com:sfchronicle/newsapp-react ~/.grunt-init/react
 ```
 This will clone the repo into a folder called "react" so that we can run `grunt-init react` and not `grunt-init newsapp-react`.
 
