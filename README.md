@@ -25,7 +25,7 @@ The newsapp template rebuilt using React
 ## Setup
 Clone this repo into it using the following command:
 ```
-git clone git@github.com:sfchronicle/newsapp-react react
+git clone git@github.com:sfchronicle/newsapp-react ~/.grunt-init/react
 ```
 This will clone the repo into a folder called "react" so that we can run `grunt-init react` and not `grunt-init newsapp-react`.
 
@@ -76,5 +76,5 @@ One-liner to deploy code to our your chosen subfolder for live publishing: `npm 
 
 - When using /<Link/> tags for internal links, it's usually a good idea to add the `prefetch` attr -- this will allow the app to preload data from the link source and speed up transitions
 - When linking out to external sources with the `target=_blank` attr, it's good to add the `rel=noopener` attr so that the source will be disconnected from the project page
-- When adding a link href or img src, remember to use the `${publicRuntimeConfig.ASSET_PATH}` and `${publicRuntimeConfig.ASSET_PATH}${env.STATIC_URL}` prefixes (respectively) -- otherwise, these resources will not be available when deploying
+- When adding a link href or img src, remember to use the `${publicRuntimeConfig.ASSET_PATH}` and `${publicRuntimeConfig.ASSET_PATH}/static/` prefixes (respectively) -- otherwise, these resources will not be available when deploying
 
