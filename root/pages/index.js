@@ -11,6 +11,7 @@ import NavTop from "../components/NavTop";
 import SocialTop from "../components/SocialTop";
 import Post from '../components/Post';
 import RelatedRow from '../components/RelatedRow';
+import Byline from '../components/Byline';
 
 // Enable Font Awesome! 
 // The code below should enable use of anything from this list: https://fontawesome.com/icons?d=gallery&s=solid
@@ -145,7 +146,18 @@ export default class extends PureComponent {
 						<div id="title">
 							<h1>A brave new template</h1>
 							<p>Words can be like X-rays if you use them properly &mdash; they'll go through anything.</p>
-							<p className="byline">By <a href="https://www.sfchronicle.com/2018/in-depth-projects/" target="_blank">the Interactive Team</a></p>
+							<div className="byline">
+								<span>By</span>
+								{ publicRuntimeConfig.PROJECT.AUTHORS.map((author, index) => {
+									// Pass special flag if this is the last item
+									let isLast = false;
+									if (index == publicRuntimeConfig.PROJECT.AUTHORS.length - 1){
+										isLast = true;
+									}
+									// Add the bylines
+						      return <Byline url={author.AUTHOR_PAGE} name={author.AUTHOR_NAME} index={index} is_last={isLast} />
+								})}
+							</div>
 							<time className="dateline" dateTime={ this.computerDate } itemProp="dateModified">{ publicRuntimeConfig.PROJECT.DATE }</time>
 						</div>
 					</div>

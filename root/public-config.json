@@ -16,6 +16,11 @@
     "TWITTER_HASHTAGS": "yourhashtaghere",
     "HEARST_CATEGORY": "news", 
     "DATE": "January 1, 1970 6:00 p.m.",
-    "AUTHOR": "Interactives Team"
+    "AUTHORS": [
+      {
+        "AUTHOR_NAME": "Interactives Team",
+        "AUTHOR_PAGE": "https://www.sfchronicle.com/newsroom_contacts/"
+      }
+    ]
   }
 }

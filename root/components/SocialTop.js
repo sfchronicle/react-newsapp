@@ -14,8 +14,45 @@ import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope';
 fontawesome.library.add(faFacebook, faTwitter, faEnvelope);
 
+// Bring in moment to handle dates
+var moment = require('moment');
+
 class SocialTop extends Component {
+
+  componentWillMount () {
+    // Convert date to readable time
+    this.computerPubDate = moment(publicRuntimeConfig.PROJECT.DATE, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ");
+    // Check safely for MOD_DATE
+    if (typeof publicRuntimeConfig.PROJECT.MOD_DATE != "undefined"){
+      this.computerModDate = moment(publicRuntimeConfig.PROJECT.MOD_DATE, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ");
+    } else {
+      // If MOD_DATE does not exist, set var to pubdate
+      this.computerModDate = this.computerPubDate;
+    }
+  }
+
   render() {
+    // Handle author data
+    let authorObj = [];
+    let newAuthor = {};
+    try {
+      for (let i = 0; i < this.props.authors.length; i++){
+        newAuthor = {
+          "@type": "Person",
+          "name": this.props.authors[i].AUTHOR_NAME,
+          "url": this.props.authors[i].AUTHOR_PAGE
+        }
+        authorObj.push(newAuthor);
+      }
+    } catch (err){
+      // If it errored, just set to neutral default
+      authorObj = {
+        "@type": "Person",
+        "name": "San Francisco Chronicle Staff",
+        "url": "https://www.sfchronicle.com"
+      }
+    }
+
     return (
       <Fragment>
       	<meta name="description" content={ this.props.description } />
@@ -35,6 +72,36 @@ class SocialTop extends Component {
 				<meta property="og:url" content={ this.props.url } />
 				<meta property="og:image" content={ this.props.image } />
 				<meta property="og:description" content={ this.props.description } />
+
+        {/* Schema.org structured data */}
+        <script data-schema="NewsArticle" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "http://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": this.props.url
+          },
+          "headline": this.props.title,
+          "image": {
+            "@type": "ImageObject",
+            "url": this.props.image
+          },
+          "datePublished": this.computerPubDate,
+          "dateModified": this.computerModDate,
+          "author": authorObj,
+          "publisher": {
+            "@type": "Organization",
+            "name": "San Francisco Chronicle",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.sfchronicle.com/img/modules/siteheader/logos/logo_home_large.png",
+              "width": 768,
+              "height": 79
+            }
+          },
+          "description": this.props.description
+        }) }}>
+        </script>
       </Fragment>
     );
   }
@@ -45,7 +112,8 @@ SocialTop.defaultProps = {
   paywall: publicRuntimeConfig.PAYWALL,
   image: publicRuntimeConfig.PROJECT.IMAGE,
   title: publicRuntimeConfig.PROJECT.TITLE,
-  url: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SLUG }`
+  url: `${ publicRuntimeConfig.PROJECT.URL }${ publicRuntimeConfig.PROJECT.SUBFOLDER }/${ publicRuntimeConfig.PROJECT.SLUG }`,
+  authors: publicRuntimeConfig.PROJECT.AUTHORS
 };
 export default SocialTop;
 
