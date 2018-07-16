@@ -120,6 +120,6 @@ async.each(docKeys, function(key) {
     var parser = new htmlparser.Parser(handler);
     parser.write(docHtml);
     parser.done();
-    
+    console.log("SUCCESS: Fresh doc data pulled into the data folder!");
   });
 });

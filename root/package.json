@@ -38,6 +38,6 @@
     "async": "^2.6.1",
     "archieml": "^0.4.2",
     "html-entities": "^1.2.1",
-    "htmlparser2": "^3.9.2",
+    "htmlparser2": "^3.9.2"
   }
 }

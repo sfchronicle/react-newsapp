@@ -22,9 +22,11 @@ exports.template = function(grunt, init, done) {
     var root = init.filesToCopy(props);
     init.copyAndProcess(root, props, { noProcess: "static/**" });
 
-    //returning file permission to file
-    exec("chmod 744 deploy.sh");
-    exec("chmod 744 update-timestamp.sh");
+    //returning file permission to files
+    exec("chmod 744 tasks/deploy.sh");
+    exec("chmod 744 tasks/update-timestamp.sh");
+    exec("chmod 744 tasks/google-sheets.js");
+    exec("chmod 744 tasks/google-docs.js");
 
     //grab the github credentials from .credentials.json
     var credentials = grunt.file.readJSON(homedir+"/.credentials.json");
