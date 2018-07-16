@@ -2,12 +2,13 @@
   "name": "{%= app_slug %}",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "lib/server.js",
   "scripts": {
     "dev": "export NODE_ENV=development && node .",
     "deploy:stage": "export NODE_ENV=testing && next build && next export && tasks/deploy.sh stage",
     "deploy:prod": "tasks/update-timestamp.sh && export NODE_ENV=production && next build && next export && tasks/deploy.sh prod",
-    "fetch": "tasks/airtable-fetcher.js"
+    "sheets": "tasks/google-sheets.js",
+    "docs": "tasks/google-docs.js"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,12 @@
     "serve": "^6.5.6",
     "sw-precache-webpack-plugin": "^0.11.5",
     "write": "^1.0.3",
-    "json": "^9.0.6"
+    "json": "^9.0.6",
+    "googleapis": "^19.0.0",
+    "google-spreadsheets": "^2.0.0",
+    "async": "^2.6.1",
+    "archieml": "^0.4.2",
+    "html-entities": "^1.2.1",
+    "htmlparser2": "^3.9.2",
   }
 }

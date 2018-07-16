@@ -112,7 +112,7 @@ if [ -d "/Volumes/SFGextras/Projects/" ]; then
 		  echo "User confirmed deployment. Starting..."
 		  # Move helper files into folder to be served
 		  cp .next/service-worker.js out
-		  cp manifest.json out
+		  cp lib/manifest.json out
 
 		  # Format strings for file manipulation
 		  random=`date +%s`

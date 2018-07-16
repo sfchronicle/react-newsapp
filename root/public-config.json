@@ -3,6 +3,8 @@
   "PAYWALL_SETTING": "meter",
   "EMBEDDED": {%= embed %},
   "MULTI_PAGE": {%= multi_page %},
+  "GOOGLE_SHEETS": [],
+  "GOOGLE_DOCS": [],
   "PROJECT": {
     "_comment": "IMPORTANT: SUBFOLDER and SLUG for used for file pathing and the deploy script! Take care with your edits to them! NOTE: Stage deploys will automatically go to 'test-proj'",
     "SUBFOLDER": "2018",

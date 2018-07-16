@@ -1,3 +1,5 @@
+
+//Runs the node server for development and advanced production
 const express = require('express');
 const next = require('next');
 const { join } = require('path');

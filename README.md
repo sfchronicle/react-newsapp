@@ -52,16 +52,14 @@ Run `npm run dev` and navigate to `localhost:3000` in your browser.
 
 ## Modifying the settings
 
-You can change the template dummy data to real project data by modifying the values found in `public-config.json` and `private-config.json`. These values will propagate throughout the app. 
+You can change the template dummy data to real project data by modifying the simple values found in `public-config.json` -- more advanced settings can be modified in `next.config.json`. These values will propagate throughout the app. 
 
 You may also store arbitrary data in `public-config.json` as long as the required original keys remain in place.
 
 
 ## Pulling in data
 
-This template is pre-configured to ingest data from Airtable. By modifying the values found in `private-config.json`, you can target the desired Airtable and pull in data as a JSON file with a custom name. You may copy the example object up to 5 times in the array to pull in 5 sheets at once (any more than 5 and Airtable will start rate limiting). 
-
-Once the data is saved in the config, pull the data with this custom command: `npm run fetch`. The JSON will appear in a folder called `data` in the root of the project.
+This template is pre-configured to ingest data from Google Drive. If you add the ID of a spreadsheet or a properly structures (AML) Google Doc, running `npm run sheets` or `npm run docs` will drop a JSON directly into the `data` folder at the root of your project.
 
 
 ## Deploying

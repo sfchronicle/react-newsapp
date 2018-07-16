@@ -5,10 +5,7 @@ const _ = require('lodash');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 // Modify these JSON files directly to update the project
-const privateConfig = require("./private-config");
 const publicConfig = require("./public-config");
-
-const privateSettings = privateConfig;
 const publicSettings = publicConfig;
 
 const projectSettings = publicSettings.PROJECT;
@@ -133,7 +130,7 @@ if (currentEnv != "development"){
 console.log("Compiling for", currentEnv);
 
 module.exports = withLess({
-  serverRuntimeConfig: privateSettings, // Will only be available on the server side
+  serverRuntimeConfig: {}, // Potentially could hold server vars, but we are baking out our files
   publicRuntimeConfig: publicSettings, // Will be available on both server and client
   async exportPathMap () {
 
