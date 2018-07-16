@@ -1,5 +1,6 @@
 
 import React, { Component, Fragment } from "react";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Footer extends Component {
   render() {
@@ -44,10 +45,10 @@ class Footer extends Component {
 		         <li className="hcsf_connect  top-list">
 		          <h3>Connect</h3>
 		          <ul className="hcsf_linklist">
-		           <li><a className="fb-link" href="https://www.facebook.com/sanfranciscochronicle" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-		           <li><a className="twtr-link" href="https://twitter.com/sfchronicle" target="_blank"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-		           <li><a className="li-link" href="https://www.linkedin.com/company/san-francisco-chronicle" target="_blank"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-		           <li><a className="insta-link" href="https://www.instagram.com/sfchronicle/" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
+		           <li><a className="fb-link" href="https://www.facebook.com/sanfranciscochronicle" target="_blank"><FontAwesomeIcon icon={["fab", "facebook"]}/></a></li>
+		           <li><a className="twtr-link" href="https://twitter.com/sfchronicle" target="_blank"><FontAwesomeIcon icon={["fab", "twitter"]}/></a></li>
+		           <li><a className="li-link" href="https://www.linkedin.com/company/san-francisco-chronicle" target="_blank"><FontAwesomeIcon icon={["fab", "linkedin"]}/></a></li>
+		           <li><a className="insta-link" href="https://www.instagram.com/sfchronicle/" target="_blank"><FontAwesomeIcon icon={["fab", "instagram"]}/></a></li>
 		          </ul>
 		         </li>
 		        </ul>

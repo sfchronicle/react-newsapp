@@ -93,7 +93,7 @@ fi
 if [ -d "out/" ]; then
 	echo -e "${GREEN}SUCCESS:${NC} Out folder exists for this project."
 else
-	echo -e "${RED}ERROR:${NC} No 'out' folder exists in this project! (Did you 'npm run build'?)"
+	echo -e "${RED}ERROR:${NC} No 'out' folder exists in this project!"
 	echo "Exiting deploy script with error..."
 	exit 1
 fi

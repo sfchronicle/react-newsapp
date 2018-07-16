@@ -24,6 +24,7 @@ exports.template = function(grunt, init, done) {
 
     //returning file permission to file
     exec("chmod 744 deploy.sh");
+    exec("chmod 744 update-timestamp.sh");
 
     //grab the github credentials from .credentials.json
     var credentials = grunt.file.readJSON(homedir+"/.credentials.json");

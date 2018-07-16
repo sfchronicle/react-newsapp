@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "export NODE_ENV=development && node .",
     "deploy:stage": "export NODE_ENV=testing && next build && next export && ./deploy.sh stage",
-    "deploy:prod": "export NODE_ENV=production && next build && next export && ./deploy.sh prod",
+    "deploy:prod": "./update-timestamp.sh && export NODE_ENV=production && next build && next export && ./deploy.sh prod",
     "fetch": "./airtable-fetcher.js"
   },
   "author": "",
@@ -30,6 +30,7 @@
     "react-waypoint": "^8.0.1",
     "serve": "^6.5.6",
     "sw-precache-webpack-plugin": "^0.11.5",
-    "write": "^1.0.3"
+    "write": "^1.0.3",
+    "json": "^9.0.6"
   }
 }

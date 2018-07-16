@@ -11,8 +11,10 @@ import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebook';
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
+import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin';
+import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
 import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope';
-fontawesome.library.add(faFacebook, faTwitter, faEnvelope);
+fontawesome.library.add(faFacebook, faTwitter, faLinkedin, faInstagram, faEnvelope);
 
 // Bring in moment to handle dates
 var moment = require('moment');

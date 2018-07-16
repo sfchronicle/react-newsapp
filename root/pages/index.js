@@ -79,7 +79,14 @@ export default class extends PureComponent {
 
   componentWillMount () {
     // Convert date to readable time
-    this.computerDate = moment(publicRuntimeConfig.PROJECT.DATE, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ");
+    this.computerPubDate = publicRuntimeConfig.PROJECT.DATE;
+    // Check safely for MOD_DATE
+    if (typeof publicRuntimeConfig.PROJECT.MOD_DATE != "undefined"){
+      this.computerModDate = publicRuntimeConfig.PROJECT.MOD_DATE;
+    } else {
+      // If MOD_DATE does not exist, set false so it doesn't render
+      this.computerModDate = false;
+    }
   }
 
   componentDidMount () {
@@ -106,10 +113,25 @@ export default class extends PureComponent {
 		require("../lib/social");
   }
 
-  render () {
+  convertDatesToAP (dateString) {
+  	// Convert date string to AP style abbreviations
+  	let newDateString = dateString;
+  	newDateString = newDateString.replace('January', 'Jan.').replace('February', 'Feb.').replace('August', 'Aug.').replace('September', 'Sept.').replace('October', 'Oct.').replace('November','Nov.').replace('December','Dec.');
+  	// Return the result
+  	return newDateString;
+  }
 
+  render () {
   	// Include related links for bottom
   	const linkArray = require('../data/related_links.json');
+
+  	// Convert date string to AP style abbreviations
+  	let pubdateString = this.convertDatesToAP(publicRuntimeConfig.PROJECT.DATE);
+  	let moddateString = "";
+  	// Only check moddate if we have a value
+  	if (this.computerModDate){
+  		moddateString = this.convertDatesToAP(publicRuntimeConfig.PROJECT.MOD_DATE);
+  	}
 
   	return (
   		<main>
@@ -158,7 +180,10 @@ export default class extends PureComponent {
 						      return <Byline url={author.AUTHOR_PAGE} name={author.AUTHOR_NAME} index={index} is_last={isLast} />
 								})}
 							</div>
-							<time className="dateline" dateTime={ this.computerDate } itemProp="dateModified">{ publicRuntimeConfig.PROJECT.DATE }</time>
+							<time className="dateline" dateTime={ this.computerPubDate } itemProp="datePublished">{ pubdateString }</time>
+							{ this.computerModDate &&
+								<time className="dateline mod-date" dateTime={ this.computerModDate } itemProp="dateModified">Updated: { moddateString }</time>
+							}
 						</div>
 					</div>
 
