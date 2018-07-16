@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "export NODE_ENV=development && node .",
-    "deploy:stage": "export NODE_ENV=testing && next build && next export && ./deploy.sh stage",
-    "deploy:prod": "./update-timestamp.sh && export NODE_ENV=production && next build && next export && ./deploy.sh prod",
-    "fetch": "./airtable-fetcher.js"
+    "deploy:stage": "export NODE_ENV=testing && next build && next export && tasks/deploy.sh stage",
+    "deploy:prod": "tasks/update-timestamp.sh && export NODE_ENV=production && next build && next export && tasks/deploy.sh prod",
+    "fetch": "tasks/airtable-fetcher.js"
   },
   "author": "",
   "license": "ISC",
