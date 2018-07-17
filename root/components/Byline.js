@@ -19,11 +19,11 @@ class Byline extends Component {
       	{ (this.props.url) ? (
             <Fragment>
               {prefix}
-          		<Link>
-          			<a href={this.props.url} rel="author" target="_blank">
-          				<span>{this.props.name}</span>
-          			</a>
-          		</Link>
+          		<Link href={this.props.url}>
+                <a rel="author" target="_blank">
+                  <span>{this.props.name}</span>
+                </a>
+              </Link>
             </Fragment>
         	) : (
         		<span>{prefix}{this.props.name}</span>

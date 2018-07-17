@@ -177,7 +177,7 @@ export default class extends PureComponent {
 										isLast = true;
 									}
 									// Add the bylines
-						      return <Byline url={author.AUTHOR_PAGE} name={author.AUTHOR_NAME} index={index} is_last={isLast} />
+						      return <Byline key={author.AUTHOR_NAME} url={author.AUTHOR_PAGE} name={author.AUTHOR_NAME} index={index} is_last={isLast} />
 								})}
 							</div>
 							<time className="dateline" dateTime={ this.computerPubDate } itemProp="datePublished">{ pubdateString }</time>
