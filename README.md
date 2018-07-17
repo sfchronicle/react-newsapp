@@ -4,13 +4,13 @@ The newsapp template rebuilt using React
 
 ## What's cool about this template
 
-- Next JS's \<Link\> components preserve common components and resources so internal links load up very quickly
 - React's Component-based approach encourages reuse of common UI elements to build pages more efficiently
 - Manipulating React's [Virtual DOM](http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/) is faster than traditional methods and results in a smoother experience for the reader
 - React makes it easy to register a service worker and turn our projects into [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/)
 - Should we want to turn any project into a full-fledged iOS or Android app, [React Native](https://facebook.github.io/react-native/) makes that possible
 - Next JS's declarative page structure means dropping hello.js into the `pages` folder creates the /hello/ path
 - Next JS supports dynamic page creation from a local or remote data source
+- Next JS's \<Link\> components preserve common components and resources so internal links load up very quickly
 - Dynamic files in development (simpler for our developers), static files when built (faster for our readers)
 - Utilizes a Progressive Web App enhancements like service workers (speeds up loading) and manifest data (icons and theme colors)
 - One-line deploys to stage and production
