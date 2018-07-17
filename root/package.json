@@ -1,7 +1,7 @@
 {
   "name": "{%= app_slug %}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{%= app_description %}",
   "main": "lib/server.js",
   "scripts": {
     "dev": "export NODE_ENV=development && node .",
@@ -20,9 +20,17 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.12",
     "@fortawesome/react-fontawesome": "0.0.19",
     "@zeit/next-less": "^0.2.0",
+    "archieml": "^0.4.2",
+    "async": "^2.6.1",
+    "axios": "^0.18.0",
     "deep-extend": "^0.5.1",
     "express": "^4.16.3",
     "file-exists": "^5.0.1",
+    "google-spreadsheets": "^2.0.0",
+    "googleapis": "^19.0.0",
+    "html-entities": "^1.2.1",
+    "htmlparser2": "^3.9.2",
+    "json": "^9.0.6",
     "less": "^3.0.4",
     "moment": "^2.22.1",
     "next": "^6.0.0",
@@ -31,13 +39,6 @@
     "react-waypoint": "^8.0.1",
     "serve": "^6.5.6",
     "sw-precache-webpack-plugin": "^0.11.5",
-    "write": "^1.0.3",
-    "json": "^9.0.6",
-    "googleapis": "^19.0.0",
-    "google-spreadsheets": "^2.0.0",
-    "async": "^2.6.1",
-    "archieml": "^0.4.2",
-    "html-entities": "^1.2.1",
-    "htmlparser2": "^3.9.2"
+    "write": "^1.0.3"
   }
 }
