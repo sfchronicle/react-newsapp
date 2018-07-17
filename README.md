@@ -1,6 +1,10 @@
 # newsapp-react
 The newsapp template rebuilt using React
 
+## Why we built this template
+
+The SF Chronicle interactive team had been using a Node template for simple projects and a Python template for more complex multi-page projects. Maintaining and deploying with two separate systems was already a challenge, and that challenge was compounded by the fact that we frequently rewrote the same code fragments (toppers, bylines, credits, etc) which duplicated work and made for an inconsistent experience. While converting these projects into modern technology like a Progressive Web App is possible, the React template was created to build a modern experience from a better foundation.
+
 
 ## What's cool about this template
 
@@ -14,6 +18,8 @@ The newsapp template rebuilt using React
 - Dynamic files in development (simpler for our developers), static files when built (faster for our readers)
 - Utilizes a Progressive Web App enhancements like service workers (speeds up loading) and manifest data (icons and theme colors)
 - One-line deploys to stage and production
+- Projects always up-to-date: The project deploy script grabs offers to update the "last modified" time automatically
+- Codebase always up-to-date: The project creation script grabs the latest code from this repository
 
 
 ## Requirements
