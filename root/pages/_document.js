@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <link rel="manifest" href={`${publicRuntimeConfig.ASSET_PATH}/static/manifest.json`} />
+          <link rel="manifest" href={`${publicRuntimeConfig.ASSET_PATH}/manifest.json`} />
           { publicRuntimeConfig.EMBEDDED ? (
             <script src="https://projects.sfchronicle.com/shared/js/responsive-child.js"></script>
           ) : (
