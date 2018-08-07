@@ -4,7 +4,7 @@
   "description": "{%= app_description %}",
   "main": "lib/server.js",
   "scripts": {
-    "dev": "export NODE_ENV=development && node .",
+    "dev": "export NODE_ENV=development && next -p 3000",
     "deploy:stage": "export NODE_ENV=testing && next build && next export && tasks/deploy.sh stage",
     "deploy:prod": "tasks/update-timestamp.sh && export NODE_ENV=production && next build && next export && tasks/deploy.sh prod",
     "sheets": "tasks/google-sheets.js",
