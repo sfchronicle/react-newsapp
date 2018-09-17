@@ -12,17 +12,10 @@ class NavTop extends Component {
 	  super(props);
 
 	  this.state = {
-	    fixed: ""
+	    fixed: "",
+	    wrapperHeight: "auto"
 	  };
 	}
-
-	componentDidMount() {
-    // Initial events
-	};
-
-	componentWillUnmount() {
-	  // Destroy events
-	};
 
   render() {
   	// Handy var to hold config 
@@ -33,7 +26,8 @@ class NavTop extends Component {
     	// Stick the nav
     	if (currentPosition == "above"){
     		this.setState({
-    			fixed: "fixed"
+    			fixed: "fixed",
+    			wrapperHeight: "30px"
     		});
     	}
 		}
@@ -41,7 +35,8 @@ class NavTop extends Component {
     	// Unstick the nav	
     	if (currentPosition == "inside"){
     		this.setState({
-    			fixed: ""
+    			fixed: "",
+    			wrapperHeight: "auto"
     		});
     	}
 		}
@@ -54,7 +49,7 @@ class NavTop extends Component {
 		}
 
     return (
-      <Fragment>
+      <div className="header-wrapper" style={{height: this.state.wrapperHeight}}>
       	{ this.props.enableStick && 
       		<Waypoint
 					  onEnter={this.handleWaypointEnter}
@@ -96,7 +91,7 @@ class NavTop extends Component {
 					</div>
 				</header>
 
-      </Fragment>
+      </div>
     );
   }
 }
