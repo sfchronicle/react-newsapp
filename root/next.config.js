@@ -1,8 +1,8 @@
 // next.config.js
-const withLess = require('@zeit/next-less');
 const _ = require('lodash');
-
+const withLess = require('@zeit/next-less');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const withPlugins = require('next-compose-plugins');
 
 // Modify these JSON files directly to update the project
 const publicConfig = require("./public-config");
@@ -103,11 +103,17 @@ publicSettings.ASSET_PATH = assetPath;
 
 
 // Only include service worker code if we're compiling for deploy
-let serviceWorkerFunc = (config) => {
-  return config;
-};
-if (currentEnv != "development"){
-  serviceWorkerFunc = (config) => {
+let webpackConfigFunc = (config) => {
+  // Handle loading any file using raw
+  config.module.rules.push(
+    {
+      test: /\.kml$/,
+      use: 'raw-loader'
+    }
+  );
+
+  // If we're in prod or test, include the service worker
+  if (currentEnv != "development"){
     config.plugins.push(
       new SWPrecacheWebpackPlugin({
         verbose: true,
@@ -120,16 +126,17 @@ if (currentEnv != "development"){
           }
         ]
       })
-    )
-
-    return config;
+    );
   }
-}
+  return config;
+};
 
 // Flag as we're compiling
 console.log("Compiling for", currentEnv);
 
-module.exports = withLess({
+module.exports = withPlugins([
+    withLess
+  ], { // Finish with Next JS config
   serverRuntimeConfig: {}, // Potentially could hold server vars, but we are baking out our files
   publicRuntimeConfig: publicSettings, // Will be available on both server and client
   async exportPathMap () {
@@ -160,6 +167,6 @@ module.exports = withLess({
 
   },
   assetPrefix: assetPath,
-  webpack: serviceWorkerFunc
+  webpack: webpackConfigFunc
 });
 
