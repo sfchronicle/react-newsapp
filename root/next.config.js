@@ -132,7 +132,9 @@ let webpackConfigFunc = (config) => {
 };
 
 // Flag as we're compiling
-console.log("Compiling for", currentEnv);
+if (currentEnv){
+  console.log("Compiling for", currentEnv);
+}
 
 module.exports = withPlugins([
     withLess
