@@ -77,6 +77,12 @@ export default class extends PureComponent {
 
 	/* END EVENTS */
 
+	componentDidCatch(error, info) {
+    // Code inside here is executed if an error is thrown from children 
+    console.log(error);
+    console.info(info);
+  }
+
   componentWillMount () {
     // Convert date to readable time
     this.computerPubDate = publicRuntimeConfig.PROJECT.DATE;
