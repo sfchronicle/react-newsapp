@@ -64,11 +64,8 @@ export default class MyDocument extends Document {
                 $scriptEn.src = t;
                 $scriptEn.async = false;
                 document.getElementsByTagName("HEAD")[0].appendChild($scriptEn);
-                $scriptBlue = document.createElement("script");
-                $scriptBlue.src = 'https://cdn.blueconic.net/hearst.js';
-                $scriptBlue.async = false;
-                document.getElementsByTagName("HEAD")[0].appendChild($scriptBlue);
              `}} />
+              <script src="https://cdn.blueconic.net/hearst.js"></script>
             </Fragment>
           )}
         </Head>

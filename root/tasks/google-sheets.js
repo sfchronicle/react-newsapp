@@ -99,11 +99,15 @@ async.each(sheetKeys, function(key, bookDone) {
           }
         });
 
-        var filename = "data/" + camelCase(page.title) + ".sheet.json";
+        var filename = "data/" + camelCase(book.title) + "_" + camelCase(page.title) + ".sheet.json";
         var writeFile = require('write');
-				writeFile(filename, JSON.stringify(output, null, 2), function(err) {
-				  if (err) console.log(err);
-				});
+        writeFile(filename, JSON.stringify(output, null, 2), function(err) {
+          if (err){
+            console.log(err);
+          } else {
+            console.log("Created data sheet at " + filename);
+          }
+        });
         pageDone();
       });
     }, bookDone);
