@@ -4,6 +4,8 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Footer extends Component {
   render() {
+  	let year = new Date().getFullYear();
+
     return (
       <Fragment>
       	<footer className="nav-bottom">
@@ -71,7 +73,7 @@ class Footer extends Component {
 
 		       <div className="copyright-wrap clearfix">
 		        <div className="hearst-logo"><img src="//www.sfchronicle.com/img/modules/sitefooter/hst_copy_logo.png" /></div>
-		        <p className="copyright">© <script>document.write(new Date().getFullYear());</script> Hearst Corporation</p>
+		        <p className="copyright">© {year} Hearst Corporation</p>
 		       </div>
 		     </div>
 		    </footer>
