@@ -9,7 +9,7 @@ class Footer extends Component {
       	<footer className="nav-bottom">
 		      <div className="footer-content clearfix">
 
-		        <div className="logo"w><a href="//www.sfchronicle.com">
+		        <div className="logo"><a href="//www.sfchronicle.com">
 		          <img src="//www.sfchronicle.com/img/modules/sitefooter/footer_logo.png"></img>
 		        </a>
 		        </div>
