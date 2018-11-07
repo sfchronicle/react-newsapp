@@ -11,8 +11,8 @@ class Footer extends Component {
       	<footer className="nav-bottom">
 		      <div className="footer-content clearfix">
 
-		        <div className="logo"w><a href="//www.sfchronicle.com">
-		          <img src="//www.sfchronicle.com/img/modules/sitefooter/footer_logo.png"></img>
+		        <div className="logo"><a href="//www.sfchronicle.com">
+		          <img alt="San Francisco Chronicle logo" src="//www.sfchronicle.com/img/modules/sitefooter/footer_logo.png"></img>
 		        </a>
 		        </div>
 
@@ -72,7 +72,7 @@ class Footer extends Component {
 		       </ul>
 
 		       <div className="copyright-wrap clearfix">
-		        <div className="hearst-logo"><img src="//www.sfchronicle.com/img/modules/sitefooter/hst_copy_logo.png" /></div>
+		        <div className="hearst-logo"><img alt="Hearst logo" src="//www.sfchronicle.com/img/modules/sitefooter/hst_copy_logo.png" /></div>
 		        <p className="copyright">© {year} Hearst Corporation</p>
 		       </div>
 		     </div>
