@@ -21,8 +21,8 @@ var google = require('googleapis');
 var credentials = require( process.env.HOME + '/.credentials.json');
 
 // Get data from config
-let nextConfig = require("../next.config.js");
-nextConfig = nextConfig.publicRuntimeConfig.GOOGLE_DOCS;
+let publicConfig = require("../public-config.json");
+publicConfig = publicConfig.GOOGLE_DOCS;
 
 // Formatting function
 var lowerCase = function(str) {
@@ -30,7 +30,7 @@ var lowerCase = function(str) {
 };
 
 // Throw an error if there aren't any keys
-var docKeys = nextConfig;
+var docKeys = publicConfig;
 if(!credentials.client_id || !credentials.secret_id) {
   throw new Error('Missing client_id or secret_id');
 };
@@ -111,15 +111,18 @@ async.each(docKeys, function(key) {
         var doc_title = doc.name;
         var filename = "data/" + lowerCase(doc_title) + ".json";
         var writeFile = require('write');
-				writeFile(filename, JSON.stringify(parsed, null, 2), function(err) {
-				  if (err) console.log(err);
-				});
+        writeFile(filename, JSON.stringify(parsed, null, 2), function(err) {
+          if (err){
+            console.log(err);
+          } else {
+            console.log("Created data doc at " + filename);
+          }
+        });
       });
     });
 
     var parser = new htmlparser.Parser(handler);
     parser.write(docHtml);
     parser.done();
-    console.log("SUCCESS: Fresh doc data pulled into the data folder!");
   });
 });

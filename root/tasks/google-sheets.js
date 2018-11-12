@@ -15,8 +15,8 @@ var async = require("async");
 var sheets = require("google-spreadsheets");
 
 // Get data from config
-let nextConfig = require("../next.config.js");
-nextConfig = nextConfig.publicRuntimeConfig.GOOGLE_SHEETS;
+let publicConfig = require("../public-config.json");
+publicConfig = publicConfig.GOOGLE_SHEETS;
 
 // Some special formatting functions
 var camelCase = function(str) {
@@ -44,7 +44,7 @@ var cast = function(str) {
 };
 
 // Error out if there aren't keys
-var sheetKeys = nextConfig;
+var sheetKeys = publicConfig;
 if (!sheetKeys || !sheetKeys.length) {
   throw new Error("You must specify at least one spreadsheet key in public-config.json!");
 }
@@ -113,4 +113,3 @@ async.each(sheetKeys, function(key, bookDone) {
     }, bookDone);
   });
 });
- 
