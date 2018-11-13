@@ -137,6 +137,14 @@ export default class extends PureComponent {
   	// Only check moddate if we have a value
   	if (this.computerModDate){
   		moddateString = this.convertDatesToAP(publicRuntimeConfig.PROJECT.MOD_DATE);
+
+  		// Chop time off pubdate if possible
+  		try {
+      	pubdateString = pubdateString.match(/.*\d{4}/gm)[0];
+      } catch (err){
+      	// That's fine
+      	console.log(err);
+      }
   	}
 
   	return (
@@ -186,9 +194,11 @@ export default class extends PureComponent {
 						      return <Byline key={author.AUTHOR_NAME} url={author.AUTHOR_PAGE} name={author.AUTHOR_NAME} index={index} is_last={isLast} />
 								})}
 							</div>
-							<time className="dateline" dateTime={ this.computerPubDate } itemProp="datePublished">{ pubdateString }</time>
+							<time className="dateline intro-description" dateTime={ moment(this.computerPubDate, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ") } itemProp="datePublished">{ pubdateString }</time>
 							{ this.computerModDate &&
-								<time className="dateline mod-date" dateTime={ this.computerModDate } itemProp="dateModified">Updated: { moddateString }</time>
+								<Fragment>
+									&nbsp;|&nbsp;<time className="dateline mod-date" dateTime={ moment(this.computerModDate, "MMMM D, YYYY h:mm a").format("YYYY-MM-DDTHH:mm:ssZ") } itemProp="dateModified">Updated: { moddateString }</time>
+								</Fragment>
 							}
 						</div>
 					</div>
